@@ -1,7 +1,7 @@
 // BUsiness Logic
 
 function TodoList () {
-  let tasks = []
+  this.tasks = [];
 }
 
 TodoList.prototype.addTask = function(task) {
@@ -9,9 +9,10 @@ TodoList.prototype.addTask = function(task) {
 }
 
 
-
-function Task (task) {
-  this.task = task
-  this.complete = false  
+function Task (task,time,place) {
+  this.task = task;
+  this.time = time;
+  this.place = place;   
+  this.complete = false; 
 }
   
