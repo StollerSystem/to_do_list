@@ -1,13 +1,25 @@
 // BUsiness Logic
 
 function Todo () {
-  this.tasks = [];
+  this.list = [];
   this.currentId = 0;
 }
 
 Todo.prototype.add = function(task) {
   task.id = this.assignId();
-  this.tasks.push(task);
+  this.list.push(task);
+}
+
+Todo.prototype.delete = function(id) {
+  for (let i=0; i<this.list.length; i ++) {
+    if (this.list[i]) {
+      if (this.list[i].id == id) {
+        delete this.list[i];
+        return true;
+      }
+    }
+  };
+  return false;
 }
 
 Todo.prototype.assignId = function() {

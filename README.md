@@ -12,19 +12,17 @@ This program will allow the user to add tasks to create a list of things to do. 
 
 * [X] Allow the user to create new tasks and store them in a list
 
-* [] Allow the user to indicate the task is done
+* [X] Allow the user to indicate the task is done
 
-* [] Allow the user to remove a task 
+* [X] Allow the user to remove a task from the list 
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+If you would like to download this project you will need Git installed and VSCode or a text editor of your choice
+Use your terminal to "git clone" from https://github.com/StollerSystem/to_do_list/commits/master
+Navigate to the to_do_list directory
+If using VSCode use command "code ." to open the folder otherwise open the whole folder in your text editor
+Feel free to mess around with the index.html, styles.css, and scripts.js files!
 
 ## Known Bugs
 
