@@ -10,7 +10,7 @@ This program will allow the user to add tasks to create a list of things to do. 
 
 ## Specs
 
-* [] Allow the user to create new tasks
+* [X] Allow the user to create new tasks and store them in a list
 
 * [] Allow the user to indicate the task is done
 
