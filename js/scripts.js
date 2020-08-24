@@ -47,18 +47,30 @@ Task.prototype.done = function() {
 //UI Logic -------------------
 let todoList = new Todo();
 
+function displayTodoList (whatToDispaly) {
+  let todoList = $("ul#todoList")
+  let htmlForTaskInfo = "";
+  whatToDispaly.list.forEach(function(task) {
+    htmlForTaskInfo += "<li id=" + task.id + ">" + task.description + "</li>";
+  });
+  console.log(htmlForTaskInfo);
+  todoList.html(htmlForTaskInfo);
+};
+
+
 $(document).ready(function() {
   $("#formOne").submit(function(event) {
     event.preventDefault();
 
-    let description = $("descriptoin").val();
-    let time = $("time").val();
-    let place = $("place").val();
-    //$("#todoList").text(list);
+    let description = $("#description").val();
+    let time = $("#time").val();
+    let place = $("#place").val();
+    //$("#list").append("<li>" + "</li>");
 
     let newTask = new Task(description,time,place);
     todoList.add(newTask)
     console.log(todoList.list)
+    displayTodoList(todoList)
 
 
   });
