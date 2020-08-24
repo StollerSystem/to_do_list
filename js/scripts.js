@@ -51,11 +51,13 @@ function displayTodoList (whatToDispaly) {
   let todoList = $("ul#todoList")
   let htmlForTaskInfo = "";
   whatToDispaly.list.forEach(function(task) {
-    htmlForTaskInfo += "<li id=" + task.id + ">" + task.description + "</li>";
+    htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+"<button>Complete</button>"+"<button>Delete</button>"+"</li>";
   });
   console.log(htmlForTaskInfo);
   todoList.html(htmlForTaskInfo);
 };
+
+
 
 
 $(document).ready(function() {
