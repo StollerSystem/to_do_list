@@ -2,10 +2,17 @@
 
 function Todo () {
   this.tasks = [];
+  this.currentId = 0;
 }
 
 Todo.prototype.add = function(task) {
-  this.tasks.push(task)
+  task.id = this.assignId();
+  this.tasks.push(task);
+}
+
+Todo.prototype.assignId = function() {
+  this.currentId  += 1;
+  return this.currentId;
 }
 
 
@@ -24,5 +31,3 @@ Task.prototype.done = function() {
 }
 
 let todoList =  new Todo();
-let task1 = new Task("Laundry","Tomorrow","Home");
-todoList.add(task1)
