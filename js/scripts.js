@@ -51,23 +51,28 @@ function displayTodoList (whatToDispaly) {
   let todoList = $("ul#todoList")
   let htmlForTaskInfo = "";
   whatToDispaly.list.forEach(function(task) {
-    htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+"<button>Complete</button>"+"<button>Delete</button>"+"</li>";
+    htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+"<button class="+"btn"+" id="+task.id+">Complete</button>"+"<button class="+"btn"+">Delete</button>"+"</li>";
   });
   console.log(htmlForTaskInfo);
   todoList.html(htmlForTaskInfo);
 };
 
-
+function attachButtonListeners () {
+  $("ul#todoList").on("click","button", function() {
+    console.log("CLICKED ON A BUTTON!"+this.id)
+  });
+};
 
 
 $(document).ready(function() {
+  attachButtonListeners();
   $("#formOne").submit(function(event) {
     event.preventDefault();
 
     let description = $("#description").val();
     let time = $("#time").val();
     let place = $("#place").val();
-    //$("#list").append("<li>" + "</li>");
+    
 
     let newTask = new Task(description,time,place);
     todoList.add(newTask)

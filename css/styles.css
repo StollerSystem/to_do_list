@@ -3,3 +3,8 @@
   border: solid black;
   border-width: 1px;
 }
+
+.btn {
+  margin: 5px;
+  background-color: chartreuse;
+}
