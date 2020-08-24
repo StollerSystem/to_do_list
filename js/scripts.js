@@ -42,4 +42,24 @@ Task.prototype.done = function() {
     console.log("Task set to complete!",this.complete)
 }
 
-let todoList =  new Todo();
+
+
+//UI Logic -------------------
+let todoList = new Todo();
+
+$(document).ready(function() {
+  $("#formOne").submit(function(event) {
+    event.preventDefault();
+
+    let description = $("descriptoin").val();
+    let time = $("time").val();
+    let place = $("place").val();
+    //$("#todoList").text(list);
+
+    let newTask = new Task(description,time,place);
+    todoList.add(newTask)
+    console.log(todoList.list)
+
+
+  });
+});
