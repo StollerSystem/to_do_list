@@ -1,14 +1,33 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  text-align: center;
+}
+
 #formOne {
   padding: 20px;
-  border: solid black;
+  border: solid white;
   border-width: 1px;
 }
 
-.btn {
+.btn {  
   margin: 5px;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(133, 133, 133);
 }
 
 .green {
   background-color: rgb(0, 255, 0);
+}
+
+li {
+  padding: 5px;
+  border: solid white;
+  border-width: 1px;
 }
