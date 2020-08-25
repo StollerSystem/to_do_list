@@ -1,4 +1,4 @@
-// BUsiness Logic
+// Business Logic
 
 function Todo () {
   this.list = [];
@@ -21,6 +21,20 @@ Todo.prototype.delete = function(id) {
   };
   return false;
 }
+
+Todo.prototype.complete = function(id) {
+  //console.log("COMPLETE")
+  for (let i=0; i<this.list.length; i ++) {
+    if (this.list[i]) {
+      if (this.list[i].id == id) {
+        //console.log("COMPLETE")
+        this.list[i].complete = true         
+      }
+    }
+  };  
+}
+
+
 
 Todo.prototype.assignId = function() {
   this.currentId  += 1;
@@ -47,21 +61,42 @@ Task.prototype.done = function() {
 //UI Logic -------------------
 let todoList = new Todo();
 
-function displayTodoList (whatToDispaly) {
+function displayTodoList (whatToDispaly) {  
   let todoList = $("ul#todoList")
   let htmlForTaskInfo = "";
+  let btnComplete = '"btn comp"'
+  
   whatToDispaly.list.forEach(function(task) {
-    htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+"<button class="+"btn"+" id="+task.id+">Complete</button>"+"<button class="+"btn"+">Delete</button>"+"</li>";
+    if (task) {
+      if (task.complete) {
+        console.log("FUCK",task.complete)
+        btnComplete = '"btn comp green"'
+        htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+'<button class='+btnComplete+'id='+task.id+">Complete</button>"+"<button id="+task.id +' class="btn del">Delete</button>'+"</li>";
+      } else {
+        let btnComplete = '"btn comp"'
+        htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+'<button class='+btnComplete+'id='+task.id+">Complete</button>"+"<button id="+task.id +' class="btn del">Delete</button>'+"</li>";
+      }      
+    }    
   });
   console.log(htmlForTaskInfo);
   todoList.html(htmlForTaskInfo);
 };
 
 function attachButtonListeners () {
-  $("ul#todoList").on("click","button", function() {
-    console.log("CLICKED ON A BUTTON!"+this.id)
+  $("ul#todoList").on("click",".comp", function() {
+    console.log("CLICKED ON COMP BUTTON!"+this.id)
+    todoList.complete(this.id)
+    displayTodoList(todoList)
+    
+    //$(this).addClass("green")
+
   });
-};
+  $("ul#todoList").on("click",".del", function() {
+    console.log("CLICKED ON A DEL BUTTON!"+this.id)
+    todoList.delete(this.id);
+    displayTodoList(todoList)
+  });
+}
 
 
 $(document).ready(function() {
