@@ -34,13 +34,10 @@ Todo.prototype.complete = function(id) {
   };  
 }
 
-
-
 Todo.prototype.assignId = function() {
   this.currentId  += 1;
   return this.currentId;
 }
-
 
 function Task (description,time,place) {
   this.description = description;
@@ -55,7 +52,6 @@ Task.prototype.done = function() {
     this.complete = true
     console.log("Task set to complete!",this.complete)
 }
-
 
 
 //UI Logic -------------------
@@ -87,9 +83,6 @@ function attachButtonListeners () {
     console.log("CLICKED ON COMP BUTTON!"+this.id)
     todoList.complete(this.id)
     displayTodoList(todoList)
-    
-    //$(this).addClass("green")
-
   });
   $("ul#todoList").on("click",".del", function() {
     console.log("CLICKED ON A DEL BUTTON!"+this.id)
@@ -98,22 +91,16 @@ function attachButtonListeners () {
   });
 }
 
-
 $(document).ready(function() {
   attachButtonListeners();
   $("#formOne").submit(function(event) {
     event.preventDefault();
-
     let description = $("#description").val();
     let time = $("#time").val();
     let place = $("#place").val();
-    
-
     let newTask = new Task(description,time,place);
     todoList.add(newTask)
     console.log(todoList.list)
     displayTodoList(todoList)
-
-
   });
 });
