@@ -65,12 +65,12 @@ function displayTodoList (whatToDispaly) {
   whatToDispaly.list.forEach(function(task) {
     if (task) {
       if (task.complete) {
-        console.log("FUCK",task.complete)
+        console.log(task.complete)
         btnComplete = '"btn comp green"'
         htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+'<button class='+btnComplete+'id='+task.id+">Complete</button>"+"<button id="+task.id +' class="btn del">Delete</button>'+"</li>";
       } else {
         let btnComplete = '"btn comp"'
-        htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+'<button class='+btnComplete+'id='+task.id+">Complete</button>"+"<button id="+task.id +' class="btn del">Delete</button>'+"</li>";
+        htmlForTaskInfo += "<li id="+task.id+">"+task.description+"/"+task.time+"/"+task.place+'<button class='+btnComplete+'id='+task.id+">Incomplete</button>"+"<button id="+task.id +' class="btn del">Delete</button>'+"</li>";
       }      
     }    
   });
